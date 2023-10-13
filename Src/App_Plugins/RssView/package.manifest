@@ -1,0 +1,15 @@
+﻿{
+  "propertyEditors": [
+    {
+      "alias": "RssView",
+      "name": "RssView",
+      "group": "Rich Content",
+      "icon": "icon-rss",
+      "editor": {
+        "view": "~/App_Plugins/RssView/rssview.html"
+      }
+    }
+  ],
+  "javascript": ["~/App_Plugins/RssView/rssview.controller.js"],
+  "css": ["~/App_Plugins/RssView/rssview.css"]
+}

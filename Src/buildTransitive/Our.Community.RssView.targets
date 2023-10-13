@@ -1,0 +1,21 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <RssViewContentFilesPath>$(MSBuildThisFileDirectory)..\App_Plugins\RssView\**\*.*</RssViewContentFilesPath>
+  </PropertyGroup>
+
+  <Target Name="CopyRssViewAssets" BeforeTargets="Build">
+    <ItemGroup>
+      <RssViewContentFiles Include="$(RssViewContentFilesPath)" />
+    </ItemGroup>
+    <Message Text="Copying RssView files: $(RssViewContentFilesPath) - #@(RssViewContentFiles->Count()) files" Importance="high" />
+    <Copy SourceFiles="@(RssViewContentFiles)" DestinationFiles="@(RssViewContentFiles->'$(MSBuildProjectDirectory)\App_Plugins\RssView\%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+  </Target>
+
+  <Target Name="ClearRssViewAssets" BeforeTargets="Clean">
+    <ItemGroup>
+      <RssViewDir Include="$(MSBuildProjectDirectory)\App_Plugins\RssView\" />
+    </ItemGroup>
+    <Message Text="Clear old RssView data" Importance="high" />
+    <RemoveDir Directories="@(RssViewDir)" />
+  </Target>
+</Project>

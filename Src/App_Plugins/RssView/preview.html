@@ -1,0 +1,11 @@
+﻿<div class="feed-preview">
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="feedItem in model.feed.syndicationFeed.items">
+
+            <h3><a href="{{feedItem.links[0].uri}}" target="_blank">{{feedItem.title.text}}</a></h3>
+            <h4 class="muted small">{{feedItem.publishDate | date:'medium'}}</h4>
+            <div ng-bind-html="feedItem.summary.text"></div><a class="btn btn-read-article" href="{{feedItem.links[0].uri}}" target="_blank">Read Article...</a>
+        </li>
+    </ul>
+
+</div>
