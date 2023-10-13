@@ -10,6 +10,6 @@
   "Description": "Rss feed view property editor for Umbraco 10+",
   "LicenseTypes": [ "Free" ],
   "IssueTrackerUrl": "https://github.com/huwred/Our.Community.RssView/issues",
-  "PackageType": "Package"
+  "PackageType": "Package",
   "Category": "Editor Tools"
 }
