@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFrameworks>net7.0;net6.0</TargetFrameworks>
     <Version>1.0.0</Version>
     <ContentTargetFolders>.</ContentTargetFolders>
     <Product>Our.Community.RssView</Product>
@@ -17,10 +17,15 @@
     <PackageReadmeFile>readme.md</PackageReadmeFile>
   </PropertyGroup>
 
-  <ItemGroup>
+  <ItemGroup Condition="$(TargetFramework) == 'net7.0'">
     <PackageReference Include="System.ServiceModel.Syndication" Version="7.0.0" />
-    <PackageReference Include="Umbraco.Cms.Web.Website" Version="10.0.0" />
-    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="10.0.0" />
+    <PackageReference Include="Umbraco.Cms.Web.Website" Version="[12.0.0,13.0.0)" />
+    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="[12.0.0,13.0.0)" />
+  </ItemGroup>
+  <ItemGroup Condition="$(TargetFramework) == 'net6.0'">
+    <PackageReference Include="System.ServiceModel.Syndication" Version="7.0.0" />
+    <PackageReference Include="Umbraco.Cms.Web.Website" Version="[10.0.0,11.999)" />
+    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="[10.0.0,11.999)" />
   </ItemGroup>
 
   <ItemGroup>
