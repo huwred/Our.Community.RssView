@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>net7.0;net6.0</TargetFrameworks>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <ContentTargetFolders>.</ContentTargetFolders>
     <Product>Our.Community.RssView</Product>
     <PackageId>Our.Community.RssView</PackageId>

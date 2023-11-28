@@ -1,4 +1,5 @@
 ﻿{
+  "bundleOptions": "None",
   "propertyEditors": [
     {
       "alias": "RssView",
@@ -10,6 +11,6 @@
       }
     }
   ],
-  "javascript": ["~/App_Plugins/RssView/rssview.controller.js"],
-  "css": ["~/App_Plugins/RssView/rssview.css"]
+  "javascript": [ "~/App_Plugins/RssView/rssview.controller.js" ],
+  "css": [ "~/App_Plugins/RssView/rssview.css" ]
 }

@@ -8,7 +8,10 @@
       <RssViewContentFiles Include="$(RssViewContentFilesPath)" />
     </ItemGroup>
     <Message Text="Copying RssView files: $(RssViewContentFilesPath) - #@(RssViewContentFiles->Count()) files" Importance="high" />
-    <Copy SourceFiles="@(RssViewContentFiles)" DestinationFiles="@(RssViewContentFiles->'$(MSBuildProjectDirectory)\App_Plugins\RssView\%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(RssViewContentFiles)" 
+          DestinationFiles="@(RssViewContentFiles->'$(MSBuildProjectDirectory)\App_Plugins\RssView\%(RecursiveDir)%(Filename)%(Extension)')" 
+          Condition="%(Filename)!='' AND ($([System.DateTime]::Parse('%(ModifiedTime)').Ticks) &gt; $([System.IO.File]::GetLastWriteTime('$(MSBuildProjectDirectory)\App_Plugins\RssView\%(RecursiveDir)%(Filename)').Ticks))"
+    />
   </Target>
 
   <Target Name="ClearRssViewAssets" BeforeTargets="Clean">
