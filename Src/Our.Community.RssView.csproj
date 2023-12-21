@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net7.0;net6.0</TargetFrameworks>
-    <Version>1.0.1</Version>
+    <TargetFrameworks>net8.0;net7.0;net6.0</TargetFrameworks>
+    <Version>2.0.0</Version>
     <ContentTargetFolders>.</ContentTargetFolders>
     <Product>Our.Community.RssView</Product>
     <PackageId>Our.Community.RssView</PackageId>
@@ -16,16 +16,20 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>readme.md</PackageReadmeFile>
   </PropertyGroup>
-
+  <ItemGroup Condition="$(TargetFramework) == 'net8.0'">
+    <PackageReference Include="System.ServiceModel.Syndication" Version="7.0.0" />
+    <PackageReference Include="Umbraco.Cms.Web.Website" Version="[13.0.0,13.999)" />
+    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="[13.0.0,13.999)" />
+  </ItemGroup>
   <ItemGroup Condition="$(TargetFramework) == 'net7.0'">
     <PackageReference Include="System.ServiceModel.Syndication" Version="7.0.0" />
-    <PackageReference Include="Umbraco.Cms.Web.Website" Version="[12.0.0,13.0.0)" />
-    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="[12.0.0,13.0.0)" />
+    <PackageReference Include="Umbraco.Cms.Web.Website" Version="[12.0.1,13.0.0)" />
+    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="[12.0.1,13.0.0)" />
   </ItemGroup>
   <ItemGroup Condition="$(TargetFramework) == 'net6.0'">
     <PackageReference Include="System.ServiceModel.Syndication" Version="7.0.0" />
-    <PackageReference Include="Umbraco.Cms.Web.Website" Version="[10.0.0,11.999)" />
-    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="[10.0.0,11.999)" />
+    <PackageReference Include="Umbraco.Cms.Web.Website" Version="[10.4.1,11.999)" />
+    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="[10.6.1,11.999)" />
   </ItemGroup>
 
   <ItemGroup>
